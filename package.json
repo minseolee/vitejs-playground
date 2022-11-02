@@ -1,0 +1,36 @@
+{
+  "name": "vitejs-playground",
+  "version": "0.0.1",
+  "description": "vitejs-playground",
+  "author": "minseolee",
+  "scripts": {
+    "wipe": "rm -rf ./node_modules && npm i",
+    "serve": "vite",
+    "build": "NODE_OPTIONS=--max_old_space_size=8192 vite build",
+    "serve:wipe": "npm run wipe && npm run serve",
+    "build:wipe": "npm run wipe && npm run build"
+  },
+  "dependencies": {
+    "process": "^0.11.10",
+    "vue": "^2.7.10"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.19.1",
+    "@vitejs/plugin-vue2": "^2.0.0",
+    "dotenv": "^16.0.3",
+    "vite": "../vite/packages/vite/",
+    "vite-plugin-stylelint": "^3.0.8",
+    "vue-template-compiler": "^2.7.10",
+    "yorkie": "^2.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 9"
+  ],
+  "engines": {
+    "node": ">= 16.17.1",
+    "npm": ">= 8.1.0"
+  }
+}
