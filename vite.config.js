@@ -4,7 +4,11 @@ import vuePlugin from '@vitejs/plugin-vue2';
 import { defineConfig, loadEnv } from 'vite';
 
 export default defineConfig(({ command, mode }) => {
-    process.env = {...process.env, ...loadEnv(mode, process.cwd())};
+    const env = {...process.env, ...loadEnv(mode, process.cwd())};
+    const meta = import.meta.env;
+
+    console.log('env', env);
+    console.log('meta', meta);
 
     return {
         plugins: [
@@ -13,11 +17,11 @@ export default defineConfig(({ command, mode }) => {
         resolve: {
             alias: {
                 vue: path.resolve(__dirname, './node_modules/vue/dist/vue.js'),
-                'env': path.resolve(__dirname, './node_modules/dotenv/')
             },
         },
         define: {
-            VITE_APP_VER: JSON.stringify(process.env.npm_package_version),
+            VITE_PROCESS: JSON.stringify(env),
+            VITE_META: JSON.stringify(meta),
             VITE_SOME_KEY: '123'
         },
     };

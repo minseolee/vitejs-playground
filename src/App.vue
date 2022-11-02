@@ -1,21 +1,28 @@
 <template>
-    <div v-cloak id="app">
-        <h1>Hello Vite</h1>
-        <h2>{{ ver }}</h2>
+    <div id="app">
+        <h1>PROCESS</h1>
+        <h2>{{ process }}</h2>
+        <br />
+        <h1>META</h1>
+        <h2>{{ meta }}</h2>
+        <h1>SOME KEY</h1>
+        <h2>{{ someKey }}</h2>
     </div>
 </template>
 
 <script lang="ts">
-import {reactive} from "vue";
+import {reactive, toRefs} from "vue";
 
 export default {
     name: 'App',
     setup() {
         const state = reactive({
-            ver: window.VITE_APP_VER
+            process: VITE_PROCESS,
+            meta: VITE_META,
+            someKey: VITE_SOME_KEY,
         })
 
-        return { ver: state.ver }
+        return { ...toRefs(state) }
     }
 }
 </script>

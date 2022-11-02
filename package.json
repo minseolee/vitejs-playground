@@ -6,19 +6,21 @@
   "scripts": {
     "wipe": "rm -rf ./node_modules && npm i",
     "serve": "vite",
+    "preview": "npm run build && vite preview",
     "build": "NODE_OPTIONS=--max_old_space_size=8192 vite build",
     "serve:wipe": "npm run wipe && npm run serve",
-    "build:wipe": "npm run wipe && npm run build"
+    "build:wipe": "npm run wipe && npm run build",
+    "preview:wipe": "npm run wipe && npm run preview"
   },
   "dependencies": {
     "process": "^0.11.10",
-    "vue": "^2.7.10"
+    "vue": "^2.7.10",
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.19.1",
     "@vitejs/plugin-vue2": "^2.0.0",
-    "dotenv": "^16.0.3",
     "vite": "../vite/packages/vite/",
     "vite-plugin-stylelint": "^3.0.8",
     "vue-template-compiler": "^2.7.10",
